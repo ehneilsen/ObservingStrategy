@@ -22,8 +22,8 @@
 \def\secname{lenstimedelays}\label{sec:\secname}
 
 \credit{soares-santos},
-\credit{ehneilsen}
-%%%%\credit{annis}
+\credit{ehneilsen}, 
+\credit{annis}
 
 Gravitational waves from coalescing binary neutron stars and  
 black holes provide a direct measurement of the 
@@ -34,68 +34,81 @@ parameters can be obtained using the distance-redshift relation.
 LSST is an ideal instrument to identify hosts for a large number of  
 GW sources. 
 
-%% The multiple images of strongly lensed quasars and supernovae have
-%% delayed arrival times: variability in the first image will be observed
-%% in the second image some time later, as the photons take different
-%% paths around the deflector galaxy, and through different depths of
-%% gravitational potential. If the lens mass distribution can be modeled
-%% independently, using a combination of high resolution imaging of the
-%% distorted quasar/SN host galaxy and stellar dynamics in the lens
-%% galaxy, the measured time delays can be used to infer the ``time delay
-%% distance'' in the system. This distance enables a direct measurement
-%% of the Hubble constant, independent of the distance ladder.
-
 % --------------------------------------------------------------------
 
 \subsection{Target measurements and discoveries}
 \label{sec:\secname:targets}
 
-%% For this cosmological probe to be competitive with LSST's others, the
-%% time delays of several hundred systems (which will be distributed
-%% uniformly over the extragalactic sky) will need to be measured with
-%% bias below the sub-percent level, while the precision required is a
-%% few percent per lens.  In galaxy-scale lenses, the kind that are most
-%% accurately modeled, these time delays are typically between several
-%% days and several weeks long, and so are measurable in monitoring
-%% campaigns having night-to-night cadence of between one and a few days,
-%% and seasons lasting several months or more.
 
-%% To obtain accurate as well as precise lensed quasar time delays, several
-%% monitoring seasons are required. Lensed supernova time delays have not
-%% yet been measured, but their transient nature means that their time
-%% delay measurements may be more sensitive to cadence than season or
-%% campaign length.
+Standard sirens have long been proposed as a possible new method to meet the challenge of 
+measuring the cosmic expansion history without being limited by systematic uncertainties 
+typically associated with standard candles. Recent observations of gravitational wave
+emission from mergers of compact objects have enabled us to begin exploring this possibility
+from the experimental perspective. 
+
+Gravitational wave signal provides absolute measurement of the distance to 
+the merging systems. Redshift information is required to construct a Hubble diagram 
+from which cosmological parameters can be measured. Such information requires the 
+identification of EM counterparts to the GW events. Associated challenges are
+described in section \ref{sec:??} which shows that although the Baseline Cadence 
+\opsimdbref{db:baseCadence} performs poorly, a low-impact ToO program can let us take 
+advantage of LSST's unique capability for this science. 
+
+In this section, we use the MAF to evaluate the Baseline and Rolling cadences
+for this use for cosmology and propose a ToO component. 
 
 % --------------------------------------------------------------------
 
 \subsection{Metrics}
 \label{sec:\secname:metrics}
 
-%% Anticipating that the time delay accuracy would depend on night-to-night
-%% cadence, season length, and campaign length, we carried out a large
-%% scale simulation and measurement program that coarsely sampled these
-%% schedule properties. In \citet{LiaoEtal2015}, we simulated 5 different
-%% light curve datasets, each containing 1000 lenses, and presented them to
-%% the strong lensing community in a ``Time Delay Challenge.'' These 5
-%% challenge ``rungs'' differed by their schedule properties, in the ways
-%% shown in \autoref{tab:tdcrungs}. Focusing on the best challenge
-%% submissions made by the community, we derived a simple power law model
-%% for the variation of each of the time delay accuracy, time delay
-%% precision, and useable sample fraction, with the schedule properties
-%% cadence, season length and campaign length. These models are shown in
-%% \autoref{fig:tdcresults}, reproduced from \citet{LiaoEtal2015}, and are
-%% given by the following equations:
-%% \begin{align}
-%% |A|_{\rm model} &\approx 0.06\% \left(\frac{\rm cad} {\rm 3 days}  \right)^{0.0}
-%%                           \left(\frac{\rm sea}  {\rm 4 months}\right)^{-1.0}
-%%                           \left(\frac{\rm camp}{\rm 5 years} \right)^{-1.1} \notag \\
-%%   P_{\rm model} &\approx 4.0\% \left(\frac{\rm cad} {\rm 3 days}  \right)^{ 0.7}
-%%                          \left(\frac{\rm sea}  {\rm 4 months}\right)^{-0.3}
-%%                          \left(\frac{\rm camp}{\rm 5 years} \right)^{-0.6} \notag \\
-%%   f_{\rm model} &\approx 30\% \left(\frac{\rm cad} {\rm 3 days}  \right)^{-0.4}
-%%                         \left(\frac{\rm sea}  {\rm 4 months}\right)^{ 0.8}
-%%                         \left(\frac{\rm camp}{\rm 5 years} \right)^{-0.2} \notag
-%% \end{align}
+%f1. Number of detections (area covered)
+
+%f2. Detection efficiency 
+
+%number of GW events * f1 * f2 = number of points in the hubble diagram > 10
+
+
+For a 3\% measurement error on $H_0$, we require about 25 standard sirens 
+with an identified optical counterpart \cite{13095382}.
+Assuming a number $N$ of GW events per year, we can calculate the 
+efficiency $e$ needed in order to have our program achieve that measurement error 
+within a time $T$ of operations. 
+
+$$N \times e \times T > 25$$
+
+The efficiency has two components, one is the probability $p_A$ that LSST has imaged 
+the volume element in which the event happened within a time delta t from the trigger. 
+The second component is the probability of detection $p_d$ of the source if the observation 
+occurs. 
+
+$$ e = p_A \times p_d > \frac{25}{N \times T}$$
+
+We therefore will employ the MAF framework to evaluate $p_A$ and $p_d$ for each scenario.
+
+The area probability is computed by averaging the probability covered for each simulated
+event. We consider $N=50$ simulated events in $T=1$ year of operations. 
+We approximate the event area maps as 2D Gaussians with width $\sigma= 5$ degrees.  
+(https://github.com/soares-santos/gwMetrics/blob/master/metrics.py)
+
+The detection probability is computed using SNANA framework, similar to what is 
+Zoheyr's paper. 
+
+Parameters of ToO program:
+- Max number of interruptions per month/week
+- Max amount of time dedicated to ToOs total
+- Bands 
+- Depth 
+- Number of revisits
+- Cadence of revisits
+
+We select to test two ToO options:
+- ToO full program
+- ToO discovery only 
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \begin{table*}
